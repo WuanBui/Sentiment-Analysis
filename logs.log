@@ -1,0 +1,6 @@
+2024-12-12 20:49:32,533 - INFO - Flask server started
+2024-12-12 20:49:32,555 - WARNING -  * Debugger is active!
+2024-12-12 20:49:32,555 - INFO -  * Debugger PIN: 197-362-869
+2024-12-12 20:58:20,143 - INFO -  * Detected change in 'D:\\Artificial Intelligence\\Sentiment Analysis\\app.py', reloading
+2024-12-12 20:58:20,143 - INFO -  * Detected change in 'D:\\Artificial Intelligence\\Sentiment Analysis\\helper.py', reloading
+2024-12-12 20:58:20,143 - INFO -  * Detected change in 'D:\\Artificial Intelligence\\Sentiment Analysis\\logger.py',2024-12-12 20:58:21,060 - INFO -  * Restarting with watchdog (windowsapi)

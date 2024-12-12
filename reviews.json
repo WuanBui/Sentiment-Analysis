@@ -1,0 +1,60 @@
+import json
+
+# File path to store reviews
+REVIEWS_FILE = "reviews.json"
+
+# Load reviews from JSON file
+def load_reviews():
+    try:
+        with open(REVIEWS_FILE, "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {}
+
+# Save reviews to JSON file
+def save_reviews(data):
+    with open(REVIEWS_FILE, "w") as file:
+        json.dump(data, file)
+
+# Update your existing code to use the load_reviews and save_reviews functions
+
+# Modify the add_review function to save reviews into the file:
+@app.route("/image/<int:image_id>", methods=["POST"])
+def add_review(image_id):
+    """Handle review submissions for a specific image."""
+    data = load_reviews()
+    image = next((img for img in data["images"] if img["id"] == image_id), None)
+    if not image:
+        logging.warning(f"Image with ID {image_id} not found.")
+        return redirect(url_for("index"))
+
+    text = request.form.get("text", "").strip()
+    if not text:
+        logging.warning("Empty review submitted.")
+        return redirect(url_for("image_reviews", image_id=image_id))
+    
+    logging.info(f"Received review for Image {image_id}: {text}")
+
+    # Preprocess and analyze the input text
+    try:
+        preprocessed_text = preprocessing(text)
+        vectorized_text = vectorizer(preprocessed_text)
+        prediction = get_prediction(vectorized_text)
+        logging.info(f"Prediction for Image {image_id}: {prediction}")
+
+        # Update counts based on the prediction
+        if prediction == "negative":
+            image["negative"] += 1
+        else:
+            image["positive"] += 1
+
+        # Add the review to the image's review list
+        image["reviews"].insert(0, text)
+
+        # Save the updated data back to the file
+        save_reviews(data)
+
+    except Exception as e:
+        logging.error(f"Error during sentiment analysis: {e}")
+    
+    return redirect(url_for("image_reviews", image_id=image_id))

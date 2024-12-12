@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Reviews</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col-md-6 {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+
+
+        /* Image Section */
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .image-container img {
+            max-width: 100%; /* Expand to the full width of the container */
+            height: auto;    /* Maintain aspect ratio */
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Enhance the shadow for better visibility */
+        }
+
+
+        /* Sentiment and Review Section */
+        .sentiment-card {
+            border: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sentiment-count {
+            font-size: 18px;
+        }
+
+        .review-form textarea {
+            resize: none;
+        }
+
+        .review-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px; /* Separate from main content */
+        }
+
+        footer a {
+            color: #f8b500;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Styles */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .navbar {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Game Reviews</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reviews">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container my-5">
+        <!-- Flex Layout for Image and Review Sections -->
+        <div class="row">
+            <!-- Image Section (Left side) -->
+            <div class="col-md-6">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename=image.path) }}" alt="Image {{ image.id }}">
+                </div>
+            </div>
+    
+            <!-- Review Section (Right side) -->
+            <div class="col-md-6">
+                <!-- Sentiment Overview Section -->
+                <div class="row my-5">
+                    <div class="col-md-6">
+                        <div class="card sentiment-card p-4">
+                            <h5 class="text-success text-center">Positive Sentiments</h5>
+                            <p class="text-center sentiment-count">{{ image.positive }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card sentiment-card p-4">
+                            <h5 class="text-danger text-center">Negative Sentiments</h5>
+                            <p class="text-center sentiment-count">{{ image.negative }}</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Review Submission Section -->
+                <div class="card p-4 mb-4 sentiment-card">
+                    <h5 class="font-weight-bold mb-3 text-center">Leave Your Review</h5>
+                    <form method="post" class="review-form">
+                        <div class="form-group">
+                            <textarea name="text" class="form-control" rows="4" placeholder="Write your review here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+                    </form>
+                </div>
+    
+                <!-- User Reviews Section -->
+                <div>
+                    <h5 class="font-weight-bold mb-3">User Reviews</h5>
+                    {% if image.reviews %}
+                        {% for review in image.reviews %}
+                            <div class="review-item">
+                                <p class="mb-0">{{ review | e }}</p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted text-center">No reviews yet. Be the first to leave one!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Game Reviews. All rights reserved.</p>
+            <p>
+                <a href="#privacy">Privacy Policy</a> | 
+                <a href="#terms">Terms of Service</a>
+            </p>
+            <div>
+                <a href="https://www.facebook.com" target="_blank">Facebook</a> | 
+                <a href="https://www.twitter.com" target="_blank">Twitter</a> | 
+                <a href="https://www.instagram.com" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+    
+    
+    
+
+</body>
+</html>
