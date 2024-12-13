@@ -1,6 +1,20 @@
-2024-12-12 20:49:32,533 - INFO - Flask server started
-2024-12-12 20:49:32,555 - WARNING -  * Debugger is active!
-2024-12-12 20:49:32,555 - INFO -  * Debugger PIN: 197-362-869
-2024-12-12 20:58:20,143 - INFO -  * Detected change in 'D:\\Artificial Intelligence\\Sentiment Analysis\\app.py', reloading
-2024-12-12 20:58:20,143 - INFO -  * Detected change in 'D:\\Artificial Intelligence\\Sentiment Analysis\\helper.py', reloading
-2024-12-12 20:58:20,143 - INFO -  * Detected change in 'D:\\Artificial Intelligence\\Sentiment Analysis\\logger.py',2024-12-12 20:58:21,060 - INFO -  * Restarting with watchdog (windowsapi)
+2024-12-13 09:07:15,040 - INFO - Flask server started
+2024-12-13 09:07:15,051 - WARNING -  * Debugger is active!
+2024-12-13 09:07:15,054 - INFO -  * Debugger PIN: 197-362-869
+2024-12-13 09:07:15,106 - INFO - ========== Open home page ===========
+2024-12-13 09:07:15,128 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET / HTTP/1.1" 200 -
+2024-12-13 09:07:15,140 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "[33mGET /static/css/main.css HTTP/1.1[0m" 404 -
+2024-12-13 09:07:15,218 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/metro.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,219 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/Cyberpunk2077.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,222 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/riderr.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,227 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/hell.png HTTP/1.1" 200 -
+2024-12-13 09:07:15,228 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/fallout.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,229 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/borderland.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,230 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/Rage2.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,230 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/tokyo.png HTTP/1.1" 200 -
+2024-12-13 09:07:15,233 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/payday3.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,234 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/Left4Dead2.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,235 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/Thefinal.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,238 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/products/des.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,396 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "GET /static/background.jpg HTTP/1.1" 200 -
+2024-12-13 09:07:15,496 - INFO - 127.0.0.1 - - [13/Dec/2024 09:07:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
